@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta name="robots" content="noindex,follow" />
+	<title>My View - MantisBT</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<link rel="stylesheet" type="text/css" href="https://bugs.almalinux.org/css/default.css" />
+	<link rel="stylesheet" type="text/css" href="https://bugs.almalinux.org/css/status_config.php?cache_key=91f70118f458decd469ff8b7d97270c2" />
+	<link rel="stylesheet" type="text/css" href="https://bugs.almalinux.org/css/dropzone-5.5.0.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://bugs.almalinux.org/css/bootstrap-3.4.1.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://bugs.almalinux.org/css/font-awesome-4.7.0.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://bugs.almalinux.org/css/fonts.css" />
+	<link rel="stylesheet" type="text/css" href="https://bugs.almalinux.org/css/bootstrap-datetimepicker-4.17.47.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://bugs.almalinux.org/css/ace.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://bugs.almalinux.org/css/ace-mantis.css" />
+	<link rel="stylesheet" type="text/css" href="https://bugs.almalinux.org/css/ace-skins.min.css" />
+
+	<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+	<link rel="search" type="application/opensearchdescription+xml" title="MantisBT: full-text search" href="https://bugs.almalinux.org/browser_search_plugin.php?type=text"/>
+	<link rel="search" type="application/opensearchdescription+xml" title="MantisBT: search by Issue Id" href="https://bugs.almalinux.org/browser_search_plugin.php?type=id"/>
+	<script type="text/javascript" src="/javascript_config.php?cache_key=91f70118f458decd469ff8b7d97270c2"></script>
+	<script type="text/javascript" src="/javascript_translations.php?cache_key=a6671261ff2a081e4b8c9e61524af5c6"></script>
+	<script type="text/javascript" src="/js/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript" src="/js/dropzone-5.5.0.min.js"></script>
+	<script type="text/javascript" src="/js/common.js"></script>
+	<meta http-equiv="Refresh" content="1800; URL=https://bugs.almalinux.org/my_view_page.php?refresh=true" />
+</head>
+<body class="skin-3">
+<style>
+* { font-family: "Open Sans"; } 
+h1, h2, h3, h4, h5 { font-family: "Open Sans"; } 
+</style>
+<div id="navbar" class="navbar navbar-default navbar-collapse navbar-fixed-top noprint"><div id="navbar-container" class="navbar-container"><button id="menu-toggler" type="button" class="navbar-toggle menu-toggler pull-left hidden-lg hidden-md" data-target="#sidebar"><span class="sr-only">Toggle sidebar</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><div class="navbar-header"><a href="/my_view_page.php" class="navbar-brand"><span class="smaller-75"> MantisBT </span></a><button type="button" class="navbar-toggle navbar-toggle collapsed pull-right hidden-sm hidden-md hidden-lg" data-toggle="collapse" data-target=".navbar-buttons,.navbar-menu"><span class="sr-only">Toggle user menu</span><i class="fa fa-user ace-icon fa-2x white" ></i> </button></div><div class="navbar-buttons navbar-header navbar-collapse collapse"><ul class="nav ace-nav">
+<li class="grey" id="dropdown_projects_menu">
+<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+&#160;All Projects&#160;
+<i class="fa fa-angle-down ace-icon bigger-110" ></i>
+</a>
+<ul id="projects-list" class=" dropdown-menu dropdown-menu-right dropdown-yellow dropdown-caret dropdown-close">
+<li><div class="projects-searchbox"><input class="search form-control input-md" placeholder="Search" /></div></li>
+<li class="divider"></li>
+<li><div class="scrollable-menu">
+<ul class="list dropdown-yellow no-margin">
+<li><a class="project-link" href="/set_project.php?project_id=0">All Projects</a></li>
+<li class="divider"></li>
+<li><a class="project-link" href="/set_project.php?project_id=2">AlmaLinux-8</a></li>
+<li><a class="project-link" href="/set_project.php?project_id=3">AlmaLinux-9</a></li>
+</ul>
+</div>
+</li>
+</ul>
+</li>
+<li class="grey"><a data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-user ace-icon fa-2x white" ></i> <span class="user-info">anonymous</span><i class="fa fa-angle-down ace-icon" ></i></a><ul class="user-menu dropdown-menu dropdown-menu-right dropdown-yellow dropdown-caret dropdown-close"><li><a href="https://bugs.almalinux.org/issues_rss.php?project_id=0"><i class="fa fa-rss-square orange ace-icon" ></i> RSS</a></li><li class="divider"></li><li><a href="/logout_page.php"><i class="fa fa-sign-out ace-icon" ></i> Logout</a></li></ul></li></ul></div></div></div><div class="main-container" id="main-container">
+<div id="sidebar" class="sidebar sidebar-fixed responsive compact "><ul class="nav nav-list"><li class="active">
+<a href="/my_view_page.php">
+<i class="fa fa-dashboard menu-icon" ></i>
+<span class="menu-text"> My View </span>
+</a>
+<b class="arrow"></b>
+</li>
+<li>
+<a href="/view_all_bug_page.php">
+<i class="fa fa-list-alt menu-icon" ></i>
+<span class="menu-text"> View Issues </span>
+</a>
+<b class="arrow"></b>
+</li>
+<li>
+<a href="/changelog_page.php">
+<i class="fa fa-retweet menu-icon" ></i>
+<span class="menu-text"> Change Log </span>
+</a>
+<b class="arrow"></b>
+</li>
+<li>
+<a href="/roadmap_page.php">
+<i class="fa fa-road menu-icon" ></i>
+<span class="menu-text"> Roadmap </span>
+</a>
+<b class="arrow"></b>
+</li>
+</ul><div id="sidebar-btn" class="sidebar-toggle sidebar-collapse"><i data-icon2="ace-icon fa fa-angle-double-right" data-icon1="ace-icon fa fa-angle-double-left"
+		class="ace-icon fa fa-angle-double-left"></i></div></div><div class="main-content">
+<div id="breadcrumbs" class="breadcrumbs noprint">
+<ul class="breadcrumb">
+ <li><i class="fa fa-user home-icon active" ></i>Anonymous </li>
+<div class="btn-group btn-corner">
+	<a href="/login_page.php?return=%2Fmy_view_page.php" class="btn btn-primary btn-xs">Login</a>
+</div>
+</ul>
+<div id="nav-search" class="nav-search"><form class="form-search" method="post" action="/jump_to_bug.php"><span class="input-icon"><input type="text" name="bug_id" autocomplete="off" class="nav-search-input" placeholder="Issue #"><i class="fa fa-search ace-icon nav-search-icon" ></i></span></form></div>
+</div>
+  <div class="page-content">
+<div class="row">
+<div class="col-xs-12 col-md-7">
+
+<div id="unassigned" class="widget-box widget-color-blue2 ">
+	<div class="widget-header widget-header-small">
+		<h4 class="widget-title lighter">
+			<i class="fa fa-list-alt ace-icon" ></i><a class="white" href="view_all_set.php?type=1&amp;temporary=y&amp;handler_id=[none]&amp;hide_status=90">Unassigned</a><span class="badge">  1 - 10 / 204  </span>		</h4>
+		<div class="widget-toolbar">
+			<a data-action="collapse" href="#">
+				<i class="fa fa-chevron-up 1 ace-icon bigger-125" ></i>			</a>
+		</div>
+		<div class="widget-toolbar no-border hidden-xs">
+			<div class="widget-menu">
+				<a class="btn btn-primary btn-white btn-round btn-sm" href="view_all_set.php?type=1&amp;temporary=y&amp;handler_id=[none]&amp;hide_status=90">View Issues</a>			</div>
+		</div>
+	</div>
+
+	<div class="widget-body">
+		<div class="widget-main no-padding">
+			<div class="table-responsive">
+				<table class="table table-bordered table-condensed table-striped table-hover">
+<tbody>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=421">0000421</a><br /><i class="fa fa-square fa-status-box status-10-fg" title="new"></i> <i class="fa fa-minus fa-lg orange2 " title="normal"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-9] </span><span><a href="view.php?id=421">FRR user does not have sufficient caps to start vrrpd</a></span><br />		<span class="small">frr</span><span class="small"> - 2023-08-28 11:55</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=409">0000409</a><br /><i class="fa fa-square fa-status-box status-10-fg" title="new"></i> <i class="fa fa-arrow-up fa-lg red " title="urgent"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-9] </span><span><a href="view.php?id=409">almalinux does not see the disk during installation</a></span><br />		<span class="small">insights-client</span><span class="small"> - 2023-07-20 17:42</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=258">0000258</a><br /><i class="fa fa-square fa-status-box status-10-fg" title="new"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i><a class="attachments" href="view.php?id=258#attachments" title="View 2 attachment(s) for issue #258"> <i class="fa fa-paperclip fa-lg grey" title="2&#32;attachment(s)"></i></a>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=258">qemu-kvm process goes to 100%, VM becomes unresponsive, Triggered by Creating a new VM</a></span><br />		<span class="small">qemu-kvm</span><span class="small"> - 2023-07-10 16:32</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=405">0000405</a><br /><i class="fa fa-square fa-status-box status-10-fg" title="new"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-9] </span><span><a href="view.php?id=405">Curl error (60): SSL peer certificate or SSH remote key</a></span><br />		<span class="small">curl</span><span class="small"> - 2023-06-27 08:41</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=400">0000400</a><br /><i class="fa fa-square fa-status-box status-10-fg" title="new"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=400">Crash when restarting autofs when a direct map-ed directory is busy and cannot be unmounted</a></span><br />		<span class="small">autofs</span><span class="small"> - 2023-06-26 21:48</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=404">0000404</a><br /><i class="fa fa-square fa-status-box status-10-fg" title="new"></i> <i class="fa fa-minus fa-lg orange2 " title="normal"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=404">Share with directory mode 0700 not accessible</a></span><br />		<span class="small">samba</span><span class="small"> - 2023-06-16 13:27</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=403">0000403</a><br /><i class="fa fa-square fa-status-box status-10-fg" title="new"></i> <i class="fa fa-minus fa-lg orange2 " title="normal"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=403">Sync AlmaLinux 8 Appstream Repo &quot;<a href="https://repo.almalinux.org/almalinux/8/AppStream/x86_64/os/&quot;" rel="noopener">https://repo.almalinux.org/almalinux/8/AppStream/x86_64/os/&quot;</a> fails</a></span><br />		<span class="small">-OTHER</span><span class="small"> - 2023-06-16 08:54</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=399">0000399</a><br /><i class="fa fa-square fa-status-box status-10-fg" title="new"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=399">[arm64] verify_fips_enable failing with a stack trace</a></span><br />		<span class="small">kernel</span><span class="small"> - 2023-06-15 16:57</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=401">0000401</a><br /><i class="fa fa-square fa-status-box status-10-fg" title="new"></i> <i class="fa fa-minus fa-lg orange2 " title="normal"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=401">Upgrade to 8.8 leads to hung_task_timeout</a></span><br />		<span class="small">kernel</span><span class="small"> - 2023-06-06 01:16</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=397">0000397</a><br /><i class="fa fa-square fa-status-box status-10-fg" title="new"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-9] </span><span><a href="view.php?id=397">Kernel bug with cephfs after update</a></span><br />		<span class="small">kernel</span><span class="small"> - 2023-05-23 13:42</span>	</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="space-10"></div><div id="resolved" class="widget-box widget-color-blue2 ">
+	<div class="widget-header widget-header-small">
+		<h4 class="widget-title lighter">
+			<i class="fa fa-list-alt ace-icon" ></i><a class="white" href="view_all_set.php?type=1&amp;temporary=y&amp;status=80&amp;hide_status=90">Resolved</a><span class="badge">  1 - 10 / 38  </span>		</h4>
+		<div class="widget-toolbar">
+			<a data-action="collapse" href="#">
+				<i class="fa fa-chevron-up 1 ace-icon bigger-125" ></i>			</a>
+		</div>
+		<div class="widget-toolbar no-border hidden-xs">
+			<div class="widget-menu">
+				<a class="btn btn-primary btn-white btn-round btn-sm" href="view_all_set.php?type=1&amp;temporary=y&amp;status=80&amp;hide_status=90">View Issues</a>			</div>
+		</div>
+	</div>
+
+	<div class="widget-body">
+		<div class="widget-main no-padding">
+			<div class="table-responsive">
+				<table class="table table-bordered table-condensed table-striped table-hover">
+<tbody>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=423">0000423</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=423">Missing CentOS Storage SIG - Ceph 18 reef</a></span><br />		<span class="small">ceph</span><span class="small"> - 2023-08-29 13:42</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=417">0000417</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-9] </span><span><a href="view.php?id=417">AlmaLinux 9 is affected by CVE-2023-20569</a></span><br />		<span class="small">linux-firmware</span><span class="small"> - 2023-08-29 07:00</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=418">0000418</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-9] </span><span><a href="view.php?id=418">AlmaLinux 9 is affected by CVE-2022-40982 aka Downfall</a></span><br />		<span class="small">microcode_ctl</span><span class="small"> - 2023-08-29 07:00</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=419">0000419</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=419">AlmaLinux 8 is affected by CVE-2023-20569</a></span><br />		<span class="small">linux-firmware</span><span class="small"> - 2023-08-29 06:59</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=420">0000420</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=420">AlmaLinux 8 is affected by CVE-2022-40982 aka Downfall</a></span><br />		<span class="small">microcode_ctl</span><span class="small"> - 2023-08-29 06:59</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=412">0000412</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i><a class="attachments" href="view.php?id=412#attachments" title="View 4 attachment(s) for issue #412"> <i class="fa fa-paperclip fa-lg grey" title="4&#32;attachment(s)"></i></a>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=412">AlmaLinux 8 is affected by CVE-2023-20593 (Zenbleed)</a></span><br />		<span class="small">linux-firmware</span><span class="small"> - 2023-08-29 06:59</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=413">0000413</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i><a class="attachments" href="view.php?id=413#attachments" title="View 1 attachment(s) for issue #413"> <i class="fa fa-paperclip fa-lg grey" title="1&#32;attachment(s)"></i></a>	</td>
+
+		<td>
+		<span>[AlmaLinux-9] </span><span><a href="view.php?id=413">AlmaLinux 9 is affected by CVE-2023-20593 (Zenbleed)</a></span><br />		<span class="small">linux-firmware</span><span class="small"> - 2023-08-10 15:20</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=415">0000415</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-down fa-lg green " title="low"></i><a class="attachments" href="view.php?id=415#attachments" title="View 4 attachment(s) for issue #415"> <i class="fa fa-paperclip fa-lg grey" title="4&#32;attachment(s)"></i></a>	</td>
+
+		<td>
+		<span>[AlmaLinux-9] </span><span><a href="view.php?id=415">AlmaLinux default HTML error pages for Nginx have a broken image link</a></span><br />		<span class="small">nginx</span><span class="small"> - 2023-08-10 08:18</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=411">0000411</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-minus fa-lg orange2 " title="normal"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=411">ipa-server-install fails with [error] RuntimeError: Failed to initialize kerberos container</a></span><br />		<span class="small">ipa</span><span class="small"> - 2023-08-08 08:11</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=175">0000175</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-minus fa-lg orange2 " title="normal"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=175">Raspberry pi 400 WiFi issue</a></span><br />		<span class="small">-OTHER</span><span class="small"> - 2023-08-08 08:11</span>	</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="space-10"></div><div id="recent_mod" class="widget-box widget-color-blue2 ">
+	<div class="widget-header widget-header-small">
+		<h4 class="widget-title lighter">
+			<i class="fa fa-list-alt ace-icon" ></i><a class="white" href="view_all_set.php?type=1&amp;temporary=y&amp;hide_status=none&amp;filter_by_last_updated_date=1&amp;last_updated_end_day=5&amp;last_updated_end_month=9&amp;last_updated_end_year=2023&amp;last_updated_start_day=6&amp;last_updated_start_month=8&amp;last_updated_start_year=2023">Recently Modified (30 Days)</a><span class="badge">  1 - 10 / 16  </span>		</h4>
+		<div class="widget-toolbar">
+			<a data-action="collapse" href="#">
+				<i class="fa fa-chevron-up 1 ace-icon bigger-125" ></i>			</a>
+		</div>
+		<div class="widget-toolbar no-border hidden-xs">
+			<div class="widget-menu">
+				<a class="btn btn-primary btn-white btn-round btn-sm" href="view_all_set.php?type=1&amp;temporary=y&amp;hide_status=none&amp;filter_by_last_updated_date=1&amp;last_updated_end_day=5&amp;last_updated_end_month=9&amp;last_updated_end_year=2023&amp;last_updated_start_day=6&amp;last_updated_start_month=8&amp;last_updated_start_year=2023">View Issues</a>			</div>
+		</div>
+	</div>
+
+	<div class="widget-body">
+		<div class="widget-main no-padding">
+			<div class="table-responsive">
+				<table class="table table-bordered table-condensed table-striped table-hover">
+<tbody>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=424">0000424</a><br /><i class="fa fa-square fa-status-box status-20-fg" title="feedback"></i> <i class="fa fa-minus fa-lg orange2 " title="normal"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-9] </span><span><a href="view.php?id=424">driver for ethernet does not work</a></span><br />		<span class="small">kernel</span><span class="small"> - 2023-09-04 13:22</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=422">0000422</a><br /><i class="fa fa-square fa-status-box status-20-fg" title="feedback"></i> <i class="fa fa-minus fa-lg orange2 " title="normal"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=422">AlmaLinux 8.8. kernel issue - missing patch</a></span><br />		<span class="small">kernel</span><span class="small"> - 2023-08-30 19:52</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=423">0000423</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=423">Missing CentOS Storage SIG - Ceph 18 reef</a></span><br />		<span class="small">ceph</span><span class="small"> - 2023-08-29 13:42</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=417">0000417</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-9] </span><span><a href="view.php?id=417">AlmaLinux 9 is affected by CVE-2023-20569</a></span><br />		<span class="small">linux-firmware</span><span class="small"> - 2023-08-29 07:00</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=418">0000418</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-9] </span><span><a href="view.php?id=418">AlmaLinux 9 is affected by CVE-2022-40982 aka Downfall</a></span><br />		<span class="small">microcode_ctl</span><span class="small"> - 2023-08-29 07:00</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=419">0000419</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=419">AlmaLinux 8 is affected by CVE-2023-20569</a></span><br />		<span class="small">linux-firmware</span><span class="small"> - 2023-08-29 06:59</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=420">0000420</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=420">AlmaLinux 8 is affected by CVE-2022-40982 aka Downfall</a></span><br />		<span class="small">microcode_ctl</span><span class="small"> - 2023-08-29 06:59</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=412">0000412</a><br /><i class="fa fa-square fa-status-box status-80-fg" title="resolved"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i><a class="attachments" href="view.php?id=412#attachments" title="View 4 attachment(s) for issue #412"> <i class="fa fa-paperclip fa-lg grey" title="4&#32;attachment(s)"></i></a>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=412">AlmaLinux 8 is affected by CVE-2023-20593 (Zenbleed)</a></span><br />		<span class="small">linux-firmware</span><span class="small"> - 2023-08-29 06:59</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=421">0000421</a><br /><i class="fa fa-square fa-status-box status-10-fg" title="new"></i> <i class="fa fa-minus fa-lg orange2 " title="normal"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-9] </span><span><a href="view.php?id=421">FRR user does not have sufficient caps to start vrrpd</a></span><br />		<span class="small">frr</span><span class="small"> - 2023-08-28 11:55</span>	</td>
+</tr>
+
+<tr class="my-buglist-bug ">
+		<td class="nowrap width-13 my-buglist-id">
+		<a href="/view.php?id=410">0000410</a><br /><i class="fa fa-square fa-status-box status-40-fg" title="confirmed"></i> <i class="fa fa-chevron-up fa-lg red " title="high"></i>	</td>
+
+		<td>
+		<span>[AlmaLinux-8] </span><span><a href="view.php?id=410">impossible to install junit via repo manager, have to manually download and install</a></span><br />		<span class="small">junit</span><span class="small"> - 2023-08-28 11:30</span>	</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="space-10"></div></div>
+
+<div class="col-xs-12 col-md-5">
+	
+<div id="timeline" class="widget-box widget-color-blue2 ">
+	<div class="widget-header widget-header-small">
+		<h4 class="widget-title lighter">
+			<i class="fa fa-clock-o ace-icon" ></i>			Timeline		</h4>
+		<div class="widget-toolbar">
+			<a data-action="collapse" href="#">
+				<i class="fa fa-chevron-up 1 ace-icon bigger-125" ></i>			</a>
+		</div>
+	</div>
+
+	<div class="widget-body">
+		<div class="widget-toolbox">
+			<div class="btn-toolbar">
+&#160;&#160;<span class="label label-grey"> 2023-08-29 </span> .. <span class="label label-grey"> 2023-09-05 </span>&#160;&#160;<div class="btn-group"> <a class="btn btn-primary btn-xs btn-white btn-round" href="my_view_page.php?days=7">Prev</a></div>			</div>
+		</div>
+
+		<div class="widget-main no-padding">
+			<div class="profile-feed">
+			</div>
+		</div>
+
+<div class="profile-activity clearfix"><i class="fa fa-flag-o pull-left thumbicon btn-primary no-hover" ></i><div class="action"><span class="username"><a href="https://bugs.almalinux.org/view_user_page.php?id=7">alukoshko</a></span> picked up issue <span class="issue_id"><a href="/view.php?id=424" title="[feedback] driver for ethernet does not work">0000424</a></span></div><div class="time"><i class="fa fa-clock-o ace-icon bigger-110" ></i> 2023-09-04 13:22</div></div><div class="profile-activity clearfix"><i class="fa fa-comment-o pull-left thumbicon btn-primary no-hover" ></i><div class="action"><span class="username"><a href="https://bugs.almalinux.org/view_user_page.php?id=7">alukoshko</a></span> commented on issue <span class="issue_id"><a href="/view.php?id=424" title="[feedback] driver for ethernet does not work">0000424</a></span></div><div class="time"><i class="fa fa-clock-o ace-icon bigger-110" ></i> 2023-09-04 13:22</div></div><div class="profile-activity clearfix"><i class="fa fa-plus pull-left thumbicon btn-primary no-hover" ></i><div class="action"><span class="username"><a href="https://bugs.almalinux.org/view_user_page.php?id=144">bagel</a></span> created issue <span class="issue_id"><a href="/view.php?id=424" title="[feedback] driver for ethernet does not work">0000424</a></span></div><div class="time"><i class="fa fa-clock-o ace-icon bigger-110" ></i> 2023-09-03 17:56</div></div><div class="profile-activity clearfix"><i class="fa fa-comment-o pull-left thumbicon btn-primary no-hover" ></i><div class="action"><span class="username"><a href="https://bugs.almalinux.org/view_user_page.php?id=7">alukoshko</a></span> commented on issue <span class="issue_id"><a href="/view.php?id=422" title="[feedback] AlmaLinux 8.8. kernel issue - missing patch">0000422</a></span></div><div class="time"><i class="fa fa-clock-o ace-icon bigger-110" ></i> 2023-08-30 19:52</div></div><div class="profile-activity clearfix"><i class="fa fa-comment-o pull-left thumbicon btn-primary no-hover" ></i><div class="action"><span class="username"><a href="https://bugs.almalinux.org/view_user_page.php?id=128">toracat</a></span> commented on issue <span class="issue_id"><a href="/view.php?id=422" title="[feedback] AlmaLinux 8.8. kernel issue - missing patch">0000422</a></span></div><div class="time"><i class="fa fa-clock-o ace-icon bigger-110" ></i> 2023-08-30 18:42</div></div><div class="profile-activity clearfix"><i class="fa fa-thumbs-o-up pull-left thumbicon btn-primary no-hover" ></i><div class="action"><span class="username"><a href="https://bugs.almalinux.org/view_user_page.php?id=7">alukoshko</a></span> resolved issue <span class="issue_id"><a href="/view.php?id=423" title="[resolved] Missing CentOS Storage SIG - Ceph 18 reef" class="resolved">0000423</a></span></div><div class="time"><i class="fa fa-clock-o ace-icon bigger-110" ></i> 2023-08-29 13:42</div></div><div class="profile-activity clearfix"><i class="fa fa-comment-o pull-left thumbicon btn-primary no-hover" ></i><div class="action"><span class="username"><a href="https://bugs.almalinux.org/view_user_page.php?id=7">alukoshko</a></span> commented on issue <span class="issue_id"><a href="/view.php?id=423" title="[resolved] Missing CentOS Storage SIG - Ceph 18 reef" class="resolved">0000423</a></span></div><div class="time"><i class="fa fa-clock-o ace-icon bigger-110" ></i> 2023-08-29 13:42</div></div><div class="profile-activity clearfix"><i class="fa fa-flag-o pull-left thumbicon btn-primary no-hover" ></i><div class="action"><span class="username"><a href="https://bugs.almalinux.org/view_user_page.php?id=7">alukoshko</a></span> picked up issue <span class="issue_id"><a href="/view.php?id=423" title="[resolved] Missing CentOS Storage SIG - Ceph 18 reef" class="resolved">0000423</a></span></div><div class="time"><i class="fa fa-clock-o ace-icon bigger-110" ></i> 2023-08-29 13:05</div></div>
+	</div>
+</div>
+	<div class="space-10"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+<div class="space-20"></div>
+<div class="footer noprint">
+<div class="footer-inner">
+<div class="footer-content">
+<div class="col-md-6 col-xs-12 no-padding">
+<address>
+<strong>Powered by <a href="https://www.mantisbt.org" title="bug tracking software">MantisBT </a></strong> <br>
+<small>Copyright &copy; 2000 - 2023 MantisBT Team</small><br><small>Contact <a href="mailto:webmaster@almalinux.org" title="Contact the webmaster via e-mail.">administrator</a> for assistance</small><br>
+</address>
+</div>
+<div class="col-md-6 col-xs-12">
+<div class="pull-right" id="powered-by-mantisbt-logo">
+<a href="https://www.mantisbt.org" title="Mantis Bug Tracker: a free and open source web based bug tracking system."><img src="/images/mantis_logo.png" width="102" height="35" alt="Powered by Mantis Bug Tracker: a free and open source web based bug tracking system." /></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a class="btn-scroll-up btn btn-sm btn-inverse display" id="btn-scroll-up" href="#">
+<i class="fa fa-angle-double-up ace-icon icon-only bigger-110" ></i>
+</a>
+</div>
+	<script type="text/javascript" src="/js/bootstrap-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/js/moment-with-locales-2.29.4.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap-datetimepicker-4.17.47.min.js"></script>
+	<script type="text/javascript" src="/js/typeahead.jquery-1.3.0.min.js"></script>
+	<script type="text/javascript" src="/js/list-1.5.0.min.js"></script>
+	<script type="text/javascript" src="/js/ace.min.js"></script>
+</body>
+</html>
