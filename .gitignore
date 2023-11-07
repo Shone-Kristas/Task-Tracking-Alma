@@ -2,3 +2,5 @@ tests
 __pycache__/
 .env
 bugs_almalinux_site.html
+venv
+.idea/
