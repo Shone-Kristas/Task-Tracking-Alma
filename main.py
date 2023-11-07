@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 bot = telebot.TeleBot(os.getenv('BOT_TOKEN'))
+chat = os.getenv('CHAT_ID')
 
 def send_message():
     headers = {
@@ -78,11 +79,11 @@ def send_message():
             if task_tr != last_task_save and int(number) > max_numb_db and date_time_tr > date_time_lastsave:
                 if int(number) > new_max_task:
                     new_max_task = int(number)
-                bot.send_message(396956685, 'NEW task:')
-                bot.send_message(396956685, result, parse_mode='HTML')
+                bot.send_message(chat, 'NEW task:')
+                bot.send_message(chat, result, parse_mode='HTML')
             elif task_tr != last_task_save and int(number) <= max_numb_db and date_time_tr > date_time_lastsave:
-                bot.send_message(396956685, 'OLD task:')
-                bot.send_message(396956685, result, parse_mode='HTML')
+                bot.send_message(chat, 'OLD task:')
+                bot.send_message(chat, result, parse_mode='HTML')
             elif task_tr == last_task_save or date_time_tr <= date_time_lastsave:
                 if new_max_task > max_numb_db:
                     tuple_new_max_task = (new_max_task, date)
