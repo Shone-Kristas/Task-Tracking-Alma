@@ -1,17 +1,16 @@
 import telebot
 import requests
 from bs4 import BeautifulSoup
-from keys import my_token
 import datetime
 import sqlite3
 import schedule
 import time
 from aiogram.utils.markdown import hlink
+import os
+from dotenv import load_dotenv
 
-bot_token = my_token
-bot = telebot.TeleBot(bot_token)
-conn = sqlite3.connect('bugs.db', check_same_thread=False)
-cursor = conn.cursor()
+load_dotenv()
+bot = telebot.TeleBot(os.getenv('BOT_TOKEN'))
 
 def send_message():
     headers = {
@@ -27,9 +26,12 @@ def send_message():
 
     soup = BeautifulSoup(src, 'lxml')
 
+    conn = sqlite3.connect('bugs.db')
+    cursor = conn.cursor()
+
     cursor.execute("SELECT number, status, priority, version, subject, category, date FROM tasks;")
     last_task_save = cursor.fetchone()
-    data_last = last_task_save[6]
+    data_last = last_task_save[-1]
     date_time_lastsave = datetime.datetime.strptime(data_last, ' - %Y-%m-%d %H:%M')
 
     cursor.execute("SELECT number FROM tasks WHERE id=2")
@@ -39,7 +41,7 @@ def send_message():
 
     def serching(all_task_list):
         total = 0
-        max_numb_DB = int(max_numb_save[0])
+        max_numb_db = int(max_numb_save[0])
         new_max_task = 0
         for tr in all_task_list:
             number = tr.find('a').text
@@ -58,8 +60,9 @@ def send_message():
             task_link = hlink(number, link)
 
             task_tr = (number, status, priority, version, subject, category, date)
-            vivod = f'Link:  {task_link} \nStatus:  {status} \nPriority:  {priority} \nVersionOS:  {version} \nDescription:  {subject} \nKategory:  {category} \nDate:  {date}'
+            result = f'Link:  {task_link} \nStatus:  {status} \nPriority:  {priority} \nVersionOS:  {version} \nDescription:  {subject} \nKategory:  {category} \nDate:  {date}'
             total += 1
+
             if total == 1:
                 cursor.execute(
                     "UPDATE tasks SET (number, status, priority, version, subject, category, date) = (?, ?, ?, ?, ?, ?, ?) where id=1",
@@ -68,32 +71,35 @@ def send_message():
                 if task_tr == last_task_save or date_time_tr <= date_time_lastsave:
                     break
             elif total == 10:
-                if new_max_task > max_numb_DB:
+                if new_max_task > max_numb_db:
                     tuple_new_max_task = (new_max_task, date)
                     cursor.execute("UPDATE tasks SET (number, date) = (?, ?) where id=2", tuple_new_max_task)
                     conn.commit()
-            if task_tr != last_task_save and int(number) > max_numb_DB and date_time_tr > date_time_lastsave:
+            if task_tr != last_task_save and int(number) > max_numb_db and date_time_tr > date_time_lastsave:
                 if int(number) > new_max_task:
                     new_max_task = int(number)
-                bot.send_message(-1001845558024, 'NEW task:')
-                bot.send_message(-1001845558024, vivod, parse_mode='HTML')
-            elif task_tr != last_task_save and int(number) <= max_numb_DB and date_time_tr > date_time_lastsave:
-                bot.send_message(-1001845558024, 'OLD task:')
-                bot.send_message(-1001845558024, vivod, parse_mode='HTML')
+                bot.send_message(396956685, 'NEW task:')
+                bot.send_message(396956685, result, parse_mode='HTML')
+            elif task_tr != last_task_save and int(number) <= max_numb_db and date_time_tr > date_time_lastsave:
+                bot.send_message(396956685, 'OLD task:')
+                bot.send_message(396956685, result, parse_mode='HTML')
             elif task_tr == last_task_save or date_time_tr <= date_time_lastsave:
-                if new_max_task > max_numb_DB:
+                if new_max_task > max_numb_db:
                     tuple_new_max_task = (new_max_task, date)
                     cursor.execute("UPDATE tasks SET (number, date) = (?, ?) where id=2", tuple_new_max_task)
                     conn.commit()
                 break
 
     serching(all_task_list)
+    conn.close()
 
-schedule.every().hour.do(send_message)
+schedule.every(1).seconds.do(send_message)
+
 
 while True:
     schedule.run_pending()
     time.sleep(300)
+
 
 if __name__ == "__main__":
     try:

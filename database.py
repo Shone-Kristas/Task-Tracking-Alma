@@ -16,3 +16,4 @@ cur.execute("""CREATE TABLE IF NOT EXISTS tasks(
    date TEXT);
 """)
 conn.commit()
+conn.close()
