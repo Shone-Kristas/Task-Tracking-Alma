@@ -23,6 +23,7 @@ outcome==1.2.0
 pycparser==2.21
 PySocks==1.7.1
 pyTelegramBotAPI==4.12.0
+python-dotenv==1.0.0
 python-telegram-bot==20.4
 pytz==2023.3
 requests==2.31.0
