@@ -39,7 +39,7 @@ def send_message():
     max_numb_save = cursor.fetchone()
 
     all_task_list = soup.find('div', id='recent_mod').find_all('tr', class_='my-buglist-bug')
-
+    bot.send_message(chat, 'OLD task:')
     def serching(all_task_list):
         total = 0
         max_numb_db = int(max_numb_save[0])
@@ -99,7 +99,7 @@ schedule.every(1).seconds.do(send_message)
 
 while True:
     schedule.run_pending()
-    time.sleep(300)
+    time.sleep(10) # 2 часа (7200)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,7 @@
+version: '2'
+services:
+  almabot:
+    build: .
+    image: nickolaybold/task-trecking-alma-bot:2.1.0.
+    volumes:
+      - ./bugs.db:/app/bugs.db

@@ -1,0 +1,17 @@
+tests
+__pycache__/
+venv
+.idea/
+.idea
+**/.git
+**/.gitignore
+**/.vscode
+**/coverage
+**/.aws
+**/.ssh
+Dockerfile
+README.md
+docker-compose.yml
+**/.DS_Store
+**/venv
+database.py
