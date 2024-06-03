@@ -14,4 +14,4 @@ README.md
 docker-compose.yml
 **/.DS_Store
 **/venv
-database.py
+src/TaskTracking/models/database.py
